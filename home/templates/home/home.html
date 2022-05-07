@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Home {% endblock %}
+
+{% block conteudo %}
+
+
+<main class="container">
+<div class="bg-light p-5 rounded">
+  <h1>Agenda Online</h1>
+  <p class="lead">Crie contatos e tenha seus amigos e familiares salvos em nuvem, podendo acessa-los em qualquer lugar aqui no Agenda Online</p>
+  <a class="btn btn-lg btn-primary" href="{% url 'register' %}" role="button">Crie sua conta aqui &raquo;</a>
+</div>
+</main>
+<br>
+
+<main class="container">
+  <div class="bg-light p-5 rounded">
+    <h3>Gerencie seus contatos</h3>
+  </div>
+</main>
+<br>
+
+<main class="container">
+  <div class="bg-light p-5 rounded">
+    <h2>Contatos</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Sobrenome</th>
+          <th scope="col">Telefone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Ana</td>
+          <td>Paula</td>
+          <td>21 9 9999-9999</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Alexandre</td>
+          <td>Reis</td>
+          <td>21 9 8888-8888</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Bruno</td>
+          <td>Reis</td>
+          <td>21 9 7777 7777</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+<br>
+<main class="container">
+  <div class="bg-light p-5 rounded">
+    <h3>Todas as informações dos seus amigos em um lugar só</h3>
+  </div>
+</main>
+<br>
+<main class="container">
+  <div class="bg-light p-5 rounded">
+      <div class="text-center">
+          <img src="https://img.freepik.com/fotos-gratis/empresario-multitarefa-trabalhando-a-noite_329181-17570.jpg?t=st=1651942164~exp=1651942764~hmac=cb7cac94db728309115bae779688d50c76a563a02f96ace49fa56da635f8f118&w=900" class="rounded" height="200px" width="auto">
+        </div>
+        <br>
+        <div class="tab-pane fade in active show" id="profile-about">
+          <!-- begin table -->
+          <div class="table-responsive">
+             <table class="table table-profile">
+                <thead>
+                   <tr>
+                      <th><h6>Contato:</h6></th>
+                      <th>
+                         <h5>Michael Temer</h5>
+                      </th>
+                   </tr>
+                </thead>
+                <tbody>
+                   <tr>
+                      <td class="field">Telefone</td>
+                      <td>21 9999-9999</td>
+                   </tr>
+                   <tr>
+                      <td class="field">Email</td>
+                      <td>michael_gostozinnoazeite@gmail.com</td>
+                   </tr>
+                   <tr>
+                      <td class="field">Categoria</td>
+                      <td>Amigo do Trabalho</td>
+                   </tr>
+                   <tr>
+                      <td class="field">Instagram</td>
+                      <td>@michaelzinhodocaralho</td>
+                   </tr>
+                </tbody>
+             </table>
+          </div>
+          <!-- end table -->
+       </div>
+       <!-- end #profile-about tab -->
+    </div>
+  </div>
+</main>
+
+
+</body>
+{% endblock %}

@@ -1,0 +1,18 @@
+PROJETO AGENDA
+
+1- HOME COMO ANUNCIO DO PROPRIO SITE
+tem que demonstrar como funciona o site e tudo mais
+tem que ter links para login e cadastro
+se o usuario estiver logado - aparece a opção "Minha agenda"
+
+2- LOGIN, LOGOUT E REGISTER
+links guiados para todo login, logout e cadastro
+cada usuario vai ser sua propria database com seus contatos
+
+3- DASHBOARD
+na dashboard o usuario logado poderá criar contatos da sua agenda, com categoria, descrição, foto, etc.
+poderá tambem editar, excluir ou adicionar contatos na sua agenda
+uma pagina com paginação, titulos e etc.
+
+
+
