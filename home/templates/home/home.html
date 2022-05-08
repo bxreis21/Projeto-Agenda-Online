@@ -16,7 +16,7 @@
 <div class="bg-light p-5 rounded">
   <h1>Agenda Online</h1>
   <p class="lead">Crie contatos e tenha seus amigos e familiares salvos em nuvem, podendo acessa-los em qualquer lugar aqui no Agenda Online</p>
-  {% if user.is_autheticated == False %}
+  {% if not user.is_authenticated %}
   <a class="btn btn-lg btn-primary" href="{% url 'register' %}" role="button">Crie sua conta aqui &raquo;</a>
   {% else %}
   <a class="btn btn-lg btn-primary" href="{% url 'dashboard' %}" role="button">Minha agenda &raquo;</a>
@@ -88,7 +88,7 @@
                    <tr>
                       <th><h6>Contato:</h6></th>
                       <th>
-                         <h5>Michael Temer</h5>
+                         <h5>Michael Scott</h5>
                       </th>
                    </tr>
                 </thead>
@@ -99,7 +99,7 @@
                    </tr>
                    <tr>
                       <td class="field">Email</td>
-                      <td>michael_gostozinnoazeite@gmail.com</td>
+                      <td>michael_scott@gmail.com</td>
                    </tr>
                    <tr>
                       <td class="field">Categoria</td>
@@ -107,7 +107,7 @@
                    </tr>
                    <tr>
                       <td class="field">Instagram</td>
-                      <td>@michaelzinhodocaralho</td>
+                      <td>@mscott</td>
                    </tr>
                 </tbody>
              </table>

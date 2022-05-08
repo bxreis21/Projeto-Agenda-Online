@@ -6,8 +6,58 @@
 <main class="container">
     <div class="bg-light p-5 rounded">
         {% include 'parciais/_messages.html' %}
+        <h5>Seja bem-vindo, {{ user.first_name }}! </h5>
+        <br>
+        <a class="btn btn-lg btn-primary" href="\accounts/dashboard/create_contact" role="button">Criar contato. &raquo;</a>     
+    </div>
+</main>
+<br>
+<main class="container">
+    <div class="bg-light p-5 rounded">
+      <h5>Seus contatos</h5>
+        <br>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Sobrenome</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for contato in page_obj %}
+              <tr>
+                <th scope="row"><a href="{% url 'ver_contato' contato.id %}" class="link-primary">{{ contato.id }}</a></th>  
+                <td>{{ contato.nome }}</td>
+                <td>{{ contato.sobrenome }}</td>
+                <td>{{ contato.telefone }}</td>
+                <td>{{ contato.email }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+            
+                </li>
+              </ul>
+            </nav>
+          </table>
+          <!--Pagination-->
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                {% if page_obj.has_previous %}
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a></li>
+              {% endif %}
+              <li class="page-item active"><a class="page-link" href="">{{ page_obj.number }}</a></li>
+              {% if page_obj.has_next %}
+              <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></li>
+              <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                {% endif %}
 
-    <h5>Seja bem-vindo, {{ user.first_name }}! </h5>
     </div>
 </main>
 {% endblock %}

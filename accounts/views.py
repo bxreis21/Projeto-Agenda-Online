@@ -1,10 +1,13 @@
-from django.forms import ValidationError
+from multiprocessing.sharedctypes import Value
+from django.forms import ValidationError, modelformset_factory
 from django.shortcuts import redirect,render
 from django.contrib import messages
 from django.core.validators import validate_email
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
+from .models import ContatoForm  
+from django.core.paginator import Paginator 
 
 def login(request):
     if request.method!='POST': 
@@ -81,13 +84,58 @@ def register(request):
 
 @login_required(redirect_field_name='index')
 def dashboard(request):
-    return render(request,'accounts/dashboard.html')
+    contatos = request.user.contato.all()
+    contatos = Paginator(contatos, 8)
+    num_pagina = request.GET.get('page')
+    page_obj = contatos.get_page(num_pagina)
+    return render(request, 'accounts/dashboard.html', {'page_obj':page_obj})
+    
+
+@login_required(redirect_field_name='index')
+def dashboard_create(request):
+    if request.method != 'POST':
+        form = ContatoForm()
+        return render(request,'accounts/dashboard_create.html', {'form': form})
+    
+    try:
+        validate_email(request.POST.get('email'))
+    except ValidationError:
+        messages.warning(request, 'Endereço de email inválido!')
+        form = ContatoForm(request.POST)
+        return render(request,'accounts/dashboard_create.html', {'form': form})
+
+    try:
+        int(request.POST.get('telefone'))
+    except ValueError:
+        messages.warning(request,'Digite apenas números no campo telefone')
+        form = ContatoForm(request.POST)
+        return render(request,'accounts/dashboard_create.html', {'form': form})
+
+    form = ContatoForm(request.POST,request.FILES)
+    form_validator = form.save(commit=False)
+    form_validator.user = request.user
+    form_validator.save()
+
+    if form.is_valid():
+        form.save()
+    
+    else:
+        messages.error(request, 'Não foi possível enviar o formulário.')
+        form = ContatoForm(request.POST)
+        return render(request,'accounts/dashboard_create.html', {'form': form})
+
+    messages.success(request, 'Contato criado.')
+    return redirect('dashboard')
+
 
 def logout(request):
     auth.logout(request)
     return redirect('login')
 
 
+def ver_contato(request, contato_id):
+    contato = request.user.contato.get(id=contato_id)
+    return render(request,'accounts/ver_contato.html', {'contato': contato})
 
 # Create your views here.
  

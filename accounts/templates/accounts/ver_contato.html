@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block titulo %}{% endblock %}
+
+{% block conteudo %}
+    <main class="container">
+        <div class="bg-light p-5 rounded">
+           {% if contato.imagem %}
+            <div class="text-center">
+                <img src="{{ contato.imagem.url }}" class="rounded" height="200px" width="auto">
+            </div>
+            {% endif %}
+              <br>
+              <div class="tab-pane fade in active show" id="profile-about">
+                <!-- begin table -->
+                <div class="table-responsive">
+                   <table class="table table-profile">
+                      <thead>
+                         <tr>
+                            <th><h6>Contato:</h6></th>
+                            <th>
+                               <h5>{{ contato.nome }} {{ contato.sobrenome }}</h5>
+                            </th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                         <tr>
+                            <td class="field">Telefone</td>
+                            <td>{{ contato.telefone }}</td>
+                         </tr>
+                         <tr>
+                            <td class="field">Email</td>
+                            <td>{{ contato.email }}</td>
+                         </tr>
+                         <tr>
+                            <td class="field">Descrição</td>
+                            <td>{{ contato.descricao }}</td>
+                         </tr>
+                      </tbody>
+                   </table>
+                </div>
+                <!-- end table -->
+             </div>
+             <!-- end #profile-about tab -->
+          </div>
+        </div>
+    </main>
+{% endblock %}

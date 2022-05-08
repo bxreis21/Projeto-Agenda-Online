@@ -120,6 +120,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR/'templates/static']
+MEDIA_ROOT = Path.joinpath(BASE_DIR,'media')
+MEDIA_URL = "media/"
+
 
 MESSAGE_TAGS = {
     messages.INFO: 'alert-info',
@@ -128,8 +131,10 @@ MESSAGE_TAGS = {
     messages.SUCCESS: 'alert-success',
 }
 
-
 LOGIN_URL= 'login'
+
+
+ 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
