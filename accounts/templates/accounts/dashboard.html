@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Agenda de {{ user.first.name }}{% endblock %}
+
+{% block conteudo %}
+<main class="container">
+    <div class="bg-light p-5 rounded">
+        {% include 'parciais/_messages.html' %}
+
+    <h5>Seja bem-vindo, {{ user.first_name }}{{ user.last_name }}! </h5>
+    </div>
+</main>
+{% endblock %}

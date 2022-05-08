@@ -4,35 +4,47 @@
 
 {% block conteudo %} 
 
-
+{% if  user.is_autheticated == False %}
 <main class="container">
     <div class="bg-light p-5 rounded">
-        
-        <form action="{% url 'login' %}">
+        <form  action="{% url 'login' %}" method ="POST">
         {% include 'parciais/_messages.html' %}
           {% csrf_token %}
             <!-- Email input -->
             <div class="form-outline mb-4">
-              <input type="email" id="form2Example1" class="form-control" />
-              <label class="form-label" for="form2Example1">Email address</label>
+              <input type="text" id="form2Example1" name="usuario" class="form-control" />
+              <label class="form-label" for="form2Example1">Usuario</label>
             </div>
           
             <!-- Password input -->
             <div class="form-outline mb-4">
-              <input type="password" id="form2Example2" class="form-control" />
-              <label class="form-label" for="form2Example2">Password</label>
+              <input type="password" id="form2Example2"  name="senha" class="form-control" />
+              <label class="form-label" for="form2Example2">Senha</label>
             </div>
           
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+            <button type="submit" class="btn btn-primary btn-block mb-4">Logar</button>
           
             <!-- Register buttons -->
             <div class="text-center">
-              <p>Not a member? <a href="/accounts/register">Register</a></p>
+              <p>Não possui uma conta? <a href="/accounts/register">Cadastrar-me</a></p>
             </div>
         </form>
     </div>
   </main>
-  
+
+  {% else %}
+  <main class="container">
+    <div class="bg-light p-5 rounded">
+      <h4>Você está logado.</h4>
+      <br>
+      <p>Para ir para sua agenda. <a href="/accounts/dashboard" class="link-primary">Clique aqui.</a></p>
+      <p>Para deslogar. <a href="/accounts/logout" class="link-dark">Clique aqui.</a></p>
+      
+
+    </div>
+  </main>
+    
+  {% endif%}
 
 {% endblock %}
