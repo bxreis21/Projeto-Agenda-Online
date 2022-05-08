@@ -4,7 +4,14 @@
 
 {% block conteudo %}
 
-
+{% if messages %}
+<main class="container">
+  <div class="bg-light p-5 rounded">
+    {% include 'parciais/_messages.html' %}
+  </div>
+</main>
+<br>
+{% endif %}
 <main class="container">
 <div class="bg-light p-5 rounded">
   <h1>Agenda Online</h1>

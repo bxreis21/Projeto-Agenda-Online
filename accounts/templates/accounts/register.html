@@ -1,3 +1,66 @@
 {% extends 'base.html' %}
 
-{% block conteudo %}este é o cadastro{% endblock %}
+{% block conteudo %}
+
+
+<main class="container">
+    <div class="bg-light p-5 rounded">
+       
+        <form action="{% url 'register' %}" method="post" >
+        {% include 'parciais/_messages.html' %}
+          {% csrf_token %}
+             <!-- Nome input -->
+             <div class="form-outline mb-4">
+                <input type="text" id="form2Example1" name='nome' class="form-control" />
+                <label class="form-label"  for="form2Example1">Nome</label>
+              </div>
+            
+            <!-- Sobrenome input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="form2Example1" name= 'sobrenome' class="form-control" />
+                <label class="form-label" ' for="form2Example1">Sobrenome</label>
+              </div>
+            
+             <!-- Telefone input -->
+             <div class="form-outline mb-4">
+                <input type="text" id="form2Example1" name= 'telefone' class="form-control" />
+                <label class="form-label" for="form2Example1">Telefone</label>
+              </div>
+            
+             <!-- Idade input -->
+             <div class="form-outline mb-4">
+                <input type="number" id="form2Example1" name='idade' class="form-control" />
+                <label class="form-label" for="form2Example1">Idade</label>
+              </div> 
+
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="email" id="form2Example1" name='email' class="form-control" />
+              <label class="form-label" for="form2Example1">Endereço de email</label>
+            </div>
+
+             <!-- User input -->
+            <div class="form-outline mb-4">
+              <input type="text" id="form2Example1" name='usuario' class="form-control" />
+              <label class="form-label"  for="form2Example1">Usuario</label>
+            </div>
+          
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" id="form2Example2" name='senha' class="form-control" />
+              <label class="form-label" for="form2Example2">Senha</label>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <input type="password" id="form2Example2" name='senha2' class="form-control" />
+                <label class="form-label" for="form2Example2">Confirme sua Senha</label>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" value="submit" class="btn btn-primary btn-block mb-4" >Cadastrar-me</button>
+          
+        </form>
+  </div>
+</main>
+{% endblock %}

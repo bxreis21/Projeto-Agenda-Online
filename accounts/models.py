@@ -8,6 +8,7 @@ class Categoria(models.Model):
         return f"{self.categoria}"
 
 class Contato(models.Model):
+    id = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=100)
     sobrenome = models.CharField(max_length=100)
     idade = models.IntegerField(blank=True)
