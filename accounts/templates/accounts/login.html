@@ -4,8 +4,22 @@
 
 {% block conteudo %} 
 
-{% if  user.is_autheticated == False %}
+{% if user.is_authenticated %}
 <main class="container">
+  <div class="bg-light p-5 rounded">
+    <h4>Você está logado.</h4>
+    <br>
+    <p>Para ir para sua agenda. <a href="/accounts/dashboard" class="link-primary">Clique aqui.</a></p>
+    <p>Para deslogar. <a href="/accounts/logout" class="link-dark">Clique aqui.</a></p>
+    
+
+  </div>
+</main>
+
+{% else %}
+
+    
+  <main class="container">
     <div class="bg-light p-5 rounded">
         <form  action="{% url 'login' %}" method ="POST">
         {% include 'parciais/_messages.html' %}
@@ -33,18 +47,6 @@
     </div>
   </main>
 
-  {% else %}
-  <main class="container">
-    <div class="bg-light p-5 rounded">
-      <h4>Você está logado.</h4>
-      <br>
-      <p>Para ir para sua agenda. <a href="/accounts/dashboard" class="link-primary">Clique aqui.</a></p>
-      <p>Para deslogar. <a href="/accounts/logout" class="link-dark">Clique aqui.</a></p>
-      
-
-    </div>
-  </main>
-    
-  {% endif%}
+{% endif%}
 
 {% endblock %}
