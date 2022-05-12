@@ -24,31 +24,31 @@
         {% csrf_token %}
            <!-- Nome input -->
            <div class="form-outline mb-4">
-              <input type="text" id="form2Example1" name='nome' class="form-control" />
+              <input type="text" id="form2Example1" name='nome' class="form-control" value="{{ request.POST.nome }}" />
               <label class="form-label"  for="form2Example1">Nome</label>
             </div>
           
           <!-- Sobrenome input -->
           <div class="form-outline mb-4">
-              <input type="text" id="form2Example1" name= 'sobrenome' class="form-control" />
+              <input type="text" id="form2Example1" name= 'sobrenome' class="form-control"  value="{{ request.POST.sobrenome }}" />
               <label class="form-label" ' for="form2Example1">Sobrenome</label>
             </div>
           
            <!-- Idade input -->
            <div class="form-outline mb-4">
-              <input type="number" id="form2Example1" name='idade' class="form-control" />
+              <input type="number" id="form2Example1" name='idade' class="form-control" value="{{ request.POST.idade }}"/>
               <label class="form-label" for="form2Example1">Idade</label>
             </div> 
 
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="email" id="form2Example1" name='email' class="form-control" />
+            <input type="email" id="form2Example1" name='email' class="form-control" value="{{ request.POST.email }}"/>
             <label class="form-label" for="form2Example1">Endereço de email</label>
           </div>
 
            <!-- User input -->
           <div class="form-outline mb-4">
-            <input type="text" id="form2Example1" name='usuario' class="form-control" />
+            <input type="text" id="form2Example1" name='usuario' class="form-control" value="{{ request.POST.usuario }}"/>
             <label class="form-label"  for="form2Example1">Usuario</label>
           </div>
         

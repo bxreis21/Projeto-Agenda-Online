@@ -42,7 +42,12 @@
                 <!-- end table -->
              </div>
              <!-- end #profile-about tab -->
-          </div>
+             <a class="btn btn-lg btn-primary" href="{% url 'edit_contato' contato.id %}" role="button">Editar Contato</a>
+            
+          <a class="btn btn-lg btn-primary" href="{% url 'excluir_contato' contato.id %}" role="button">Excluir Contato</a>
         </div>
+    
+          </div>
+         
     </main>
 {% endblock %}

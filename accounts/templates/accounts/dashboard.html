@@ -5,7 +5,6 @@
 {% block conteudo %}
 <main class="container">
     <div class="bg-light p-5 rounded">
-        {% include 'parciais/_messages.html' %}
         <h5>Seja bem-vindo, {{ user.first_name }}! </h5>
         <br>
         <a class="btn btn-lg btn-primary" href="\accounts/dashboard/create_contact" role="button">Criar contato. &raquo;</a>     
@@ -14,6 +13,18 @@
 <br>
 <main class="container">
     <div class="bg-light p-5 rounded">
+      <form method="get" action="{% url 'busca' %}">
+        <div class="form-group row">
+          <div class="col-12">
+            <input class="form-control" type="search" 
+                    value="{{ request.GET.termo }}"
+                    id="search-input"
+                    placeholder="Digite sua pesquisa"
+                    name="termo">
+          </div>
+        </div>
+      </form>
+      {% include 'parciais/_messages.html' %}
       <h5>Seus contatos</h5>
         <br>
         <table class="table">
@@ -57,7 +68,9 @@
               <li class="page-item">
                 <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
                 {% endif %}
-
+              </li>
+            </ul>
+          </nav>
     </div>
 </main>
 {% endblock %}

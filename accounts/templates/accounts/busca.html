@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Busca{% endblock %}
+
+{% block conteudo %}
+
+
+<main class="container">
+    <div class="bg-light p-5 rounded">
+        {% include 'parciais/_messages.html' %}
+        <br>
+        <form method="get" action="{% url 'busca' %}">
+            <div class="form-group row">
+              <div class="col-12">
+                <input class="form-control" type="search" 
+                        value="{{ request.GET.termo }}"
+                        id="search-input"
+                        placeholder="Digite sua pesquisa"
+                        name="termo">
+              </div>
+            </div>
+          </form>
+        <br>
+      <h5>Seus contatos</h5>
+        <br>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Sobrenome</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for contato in contatos %}
+              <tr>
+                <th scope="row"><a href="{% url 'ver_contato' contato.id %}" class="link-primary">{{ contato.id }}</a></th>  
+                <td>{{ contato.nome }}</td>
+                <td>{{ contato.sobrenome }}</td>
+                <td>{{ contato.telefone }}</td>
+                <td>{{ contato.email }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+            
+                </li>
+              </ul>
+            </nav>
+          </table>
+    </div>
+</main>
+{% endblock %}
